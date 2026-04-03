@@ -4,6 +4,19 @@ A production-ready RESTful backend for a Finance Dashboard system, built with **
 
 ---
 
+## Live Endpoints
+
+**📖 Live API Documentation (Swagger)**
+[https://financialdashboardbackend.onrender.com/api/docs](https://financialdashboardbackend.onrender.com/api/docs)
+
+**🌐 Base API URL**
+[https://financialdashboardbackend.onrender.com/api/v1](https://financialdashboardbackend.onrender.com/api/v1)
+
+**❤️ Health Check**
+[https://financialdashboardbackend.onrender.com/health](https://financialdashboardbackend.onrender.com/health)
+
+---
+
 ## Table of Contents
 
 - [Tech Stack](#tech-stack)
@@ -33,6 +46,7 @@ A production-ready RESTful backend for a Finance Dashboard system, built with **
 | Authentication | JSON Web Tokens (JWT)              |
 | Validation     | express-validator                  |
 | Security       | helmet, cors, express-mongo-sanitize, express-rate-limit |
+| Documentation  | swagger-jsdoc, swagger-ui-express |
 | Logging        | morgan (dev mode)                  |
 | Dev Tools      | nodemon, dotenv                    |
 
@@ -104,6 +118,7 @@ finance-dashboard-backend/
 - **Error Handling** — Global handler normalizes Mongoose, JWT, and app errors
 
 ### ✅ Optional Enhancements (Implemented)
+- **Interactive API Docs** — Integrated Swagger/OpenAPI UI for easy testing and documentation
 - **JWT Authentication** — Token-based stateless auth with cookie support
 - **Pagination** — All list endpoints support `page` and `limit` query params
 - **Search** — Description keyword search on records
@@ -195,7 +210,14 @@ npm start
 
 Server will be available at: `http://localhost:5000`
 
-### 5. Verify Health
+### 5. Access Interactive API Documentation
+
+```bash
+http://localhost:5000/api/docs
+```
+Open this URL in your browser to view the interactive Swagger UI and test all endpoints.
+
+### 6. Verify Health
 
 ```bash
 curl http://localhost:5000/health
