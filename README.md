@@ -64,6 +64,9 @@ finance-dashboard-backend/
 │   │   ├── user.model.js      # User schema (name, email, password, role, isActive)
 │   │   └── record.model.js    # FinancialRecord schema (amount, type, category, date)
 │   │
+│   ├── config/                # Configuration and constants
+│   │   └── swagger.js         # Swagger/OpenAPI configurations and documentation
+│   │
 │   ├── controllers/           # Thin layer — handles HTTP req/res, delegates to services
 │   │   ├── auth.controller.js
 │   │   ├── user.controller.js
