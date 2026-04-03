@@ -42,12 +42,12 @@ All protected endpoints require a **Bearer JWT token**.
   },
   servers: [
     {
-      url: process.env.SERVER_URL ? `${process.env.SERVER_URL}/api/v1` : 'http://localhost:5000/api/v1',
-      description: 'API v1 Server',
+      url: '/api/v1',
+      description: 'Current Environment — API v1',
     },
     {
-      url: process.env.SERVER_URL || 'http://localhost:5000',
-      description: 'Root Server',
+      url: '/',
+      description: 'Current Environment — Root',
     },
   ],
   tags: [
