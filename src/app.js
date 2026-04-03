@@ -97,26 +97,28 @@ if (process.env.NODE_ENV === 'development') {
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/health', (req, res) => {
+  const baseUrl = process.env.SERVER_URL || `http://localhost:${process.env.PORT || 5000}`;
   res.status(200).json({
     success: true,
     message: 'Finance Dashboard API is running',
     environment: process.env.NODE_ENV,
     timestamp: new Date().toISOString(),
-    docs: `http://localhost:${process.env.PORT || 5000}/api/docs`,
+    docs: `${baseUrl}/api/docs`,
   });
 });
 
 // ─── API Info Route — fixes Swagger UI server ping 404 ────────────────────────
 app.get('/api/v1', (req, res) => {
+  const baseUrl = process.env.SERVER_URL || `http://localhost:${process.env.PORT || 5000}`;
   res.status(200).json({
     success: true,
     message: 'Finance Dashboard API v1',
     version: '1.0.0',
-    docs: `http://localhost:${process.env.PORT || 5000}/api/docs`,
+    docs: `${baseUrl}/api/docs`,
     endpoints: {
-      auth:      '/api/v1/auth',
-      users:     '/api/v1/users',
-      records:   '/api/v1/records',
+      auth: '/api/v1/auth',
+      users: '/api/v1/users',
+      records: '/api/v1/records',
       dashboard: '/api/v1/dashboard',
     },
   });
