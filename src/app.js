@@ -20,6 +20,9 @@ const { notFound } = require('./middleware/notFound');
 
 const app = express();
 
+// Trust proxy to ensure correct protocol (http/https) is determined when deployed on platforms like Render
+app.set('trust proxy', 1);
+
 // ─── Swagger / OpenAPI Docs ───────────────────────────────────────────────────
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
@@ -97,7 +100,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/health', (req, res) => {
-  const baseUrl = process.env.SERVER_URL || `http://localhost:${process.env.PORT || 5000}`;
+  const baseUrl = process.env.SERVER_URL || `${req.protocol}://${req.get('host')}`;
   res.status(200).json({
     success: true,
     message: 'Finance Dashboard API is running',
@@ -109,7 +112,7 @@ app.get('/health', (req, res) => {
 
 // ─── API Info Route — fixes Swagger UI server ping 404 ────────────────────────
 app.get('/api/v1', (req, res) => {
-  const baseUrl = process.env.SERVER_URL || `http://localhost:${process.env.PORT || 5000}`;
+  const baseUrl = process.env.SERVER_URL || `${req.protocol}://${req.get('host')}`;
   res.status(200).json({
     success: true,
     message: 'Finance Dashboard API v1',
