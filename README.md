@@ -4,6 +4,20 @@ A production-ready RESTful backend for a Finance Dashboard system, built with **
 
 ---
 
+## ⚠️ Important Prerequisite
+
+**Before exploring the API (locally via the Swagger Docs), I highly recommend running the database seeder!**
+
+Open a terminal and run:
+```bash
+npm run seed
+```
+
+**Why is this important?**  
+The seeder automatically provisions the database with initial user accounts (Admin, Analyst, Viewer roles) and generates realistic sample financial records. Without running this first, the database will be essentially empty—meaning you won't have the predefined credentials to log in, test access controls, or see any data in the dashboard analytics.
+
+---
+
 ## Live Endpoints
 
 **📖 Live API Documentation (Swagger)**
